@@ -1,41 +1,32 @@
 const { DataTypes } = require("sequelize");
 
-class Category {
+class SeoMeta {
   static initModel(sequelize) {
     return sequelize.define(
-      "Category",
+      "SeoMeta",
       {
         id: {
           type: DataTypes.UUID,
           defaultValue: DataTypes.UUIDV4,
           primaryKey: true,
         },
-        name: {
-          type: DataTypes.STRING,
+        model_type: {
+          type: DataTypes.STRING, // Contoh: "Article", "Page", "Doctor"
           allowNull: false,
         },
-        slug: {
-          type: DataTypes.STRING,
-          unique: true,
-          allowNull: false,
-        },
-        description: DataTypes.TEXT,
-        image: DataTypes.TEXT,
-        parent_id: {
+        model_id: {
           type: DataTypes.UUID,
-          allowNull: true,
-        },
-        sort_order: {
-          type: DataTypes.INTEGER,
-          defaultValue: 0,
-        },
-        is_active: {
-          type: DataTypes.BOOLEAN,
-          defaultValue: true,
+          allowNull: false,
         },
         seo_title: DataTypes.STRING,
         seo_description: DataTypes.TEXT,
         seo_keywords: DataTypes.TEXT,
+        canonical_url: DataTypes.STRING,
+        meta_robots: {
+          type: DataTypes.STRING,
+          defaultValue: "index,follow",
+        },
+        schema_markup: DataTypes.JSONB,
         created_at: {
           type: DataTypes.DATE,
           defaultValue: DataTypes.NOW,
@@ -46,7 +37,7 @@ class Category {
         },
       },
       {
-        tableName: "categories",
+        tableName: "seo_meta",
         underscored: true,
         timestamps: false,
       }
@@ -54,11 +45,9 @@ class Category {
   }
 
   static associate(models) {
-    models.Category.hasMany(models.Article, {
-      foreignKey: "categoryId",
-      as: "articles",
-    });
+    // Jika ingin menggunakan relasi polymorphic, bisa pakai fungsi custom
+    // Misalnya: model_type + model_id mengarah ke berbagai tabel
   }
 }
 
-module.exports = Category;
+module.exports = SeoMeta;

@@ -1,18 +1,21 @@
-require('dotenv').config();
-const app = require('./src/app');
-const pool = require('./src/config/database');
-const redis = require('./src/config/redis');
-const logger = require('./src/utils/logger');
+// server.js
+require("dotenv").config();
+const app = require("./src/app");
+const sequelize = require("./src/config/sequelize");
+require("./src/models"); // Ganti pool -> sequelize
+const redis = require("./src/config/redis");
+const logger = require("./src/utils/logger");
 
 const PORT = process.env.PORT || 5000;
 
-// Database connection test
+// Sequelize connection test & sync models
 async function connectDatabase() {
   try {
-    await pool.query('SELECT NOW()');
-    logger.info('✅ Database connected successfully');
+    await sequelize.authenticate();
+    await sequelize.sync(); // tambahkan { alter: true } jika mau auto update struktur
+    logger.info("✅ Sequelize connected and models synchronized");
   } catch (error) {
-    logger.error('❌ Database connection failed:', error);
+    logger.error("❌ Database connection failed:", error);
     process.exit(1);
   }
 }
@@ -21,29 +24,29 @@ async function connectDatabase() {
 async function connectRedis() {
   try {
     await redis.connect();
-    logger.info('✅ Redis connected successfully');
+    logger.info("✅ Redis connected successfully");
   } catch (error) {
-    logger.warn('⚠️ Redis connection failed, continuing without cache:', error);
+    logger.warn("⚠️ Redis connection failed, continuing without cache:", error);
   }
 }
 
 // Graceful shutdown
-const gracefulShutdown = (signal) => {
+const gracefulShutdown = (signal, server) => {
   logger.info(`Received ${signal}. Shutting down gracefully...`);
-  
+
   server.close(async () => {
-    logger.info('HTTP server closed');
-    
+    logger.info("HTTP server closed");
+
     try {
-      await pool.end();
-      logger.info('Database pool closed');
-      
+      await sequelize.close(); // tutup koneksi Sequelize
+      logger.info("Sequelize connection closed");
+
       await redis.quit();
-      logger.info('Redis connection closed');
-      
+      logger.info("Redis connection closed");
+
       process.exit(0);
     } catch (error) {
-      logger.error('Error during shutdown:', error);
+      logger.error("Error during shutdown:", error);
       process.exit(1);
     }
   });
@@ -53,19 +56,21 @@ const gracefulShutdown = (signal) => {
 async function startServer() {
   await connectDatabase();
   await connectRedis();
-  
+
   const server = app.listen(PORT, () => {
-    logger.info(`🚀 Server running on port ${PORT} in ${process.env.NODE_ENV} mode`);
+    logger.info(
+      `🚀 Server running on port ${PORT} in ${process.env.NODE_ENV} mode`
+    );
   });
 
   // Handle graceful shutdown
-  process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
-  process.on('SIGINT', () => gracefulShutdown('SIGINT'));
-  
+  process.on("SIGTERM", () => gracefulShutdown("SIGTERM", server));
+  process.on("SIGINT", () => gracefulShutdown("SIGINT", server));
+
   return server;
 }
 
-startServer().catch(error => {
-  logger.error('Failed to start server:', error);
+startServer().catch((error) => {
+  logger.error("Failed to start server:", error);
   process.exit(1);
 });
