@@ -1,370 +1,415 @@
-const pool = require('../config/database');
-const redis = require('../config/redis');
-const logger = require('../utils/logger');
+const { Article, Category, User, SeoMeta } = require('../models');
+const { validationResult } = require('express-validator');
+const { Op } = require('sequelize');
+const seoService = require('../services/seoService');
 const { generateSlug, calculateReadingTime } = require('../utils/helpers');
+const logger = require('../utils/logger');
 
 class ArticleController {
-  // Get all articles with pagination and filters
-  async getArticles(req, res) {
+  // Get all articles with SEO optimization
+  async getAll(req, res) {
     try {
       const {
         page = 1,
         limit = 10,
-        category,
         status = 'published',
-        search,
+        category,
         featured,
-        sort = 'published_at'
+        search,
+        sortBy = 'created_at',
+        sortOrder = 'DESC'
       } = req.query;
 
       const offset = (page - 1) * limit;
-      const cacheKey = `articles:${JSON.stringify(req.query)}`;
+      const whereClause = {};
 
-      // Try cache first
-      const cached = await redis.get(cacheKey);
-      if (cached) {
-        return res.json(JSON.parse(cached));
+      // Filter by status
+      if (status) {
+        whereClause.status = status;
       }
 
-      let query = `
-        SELECT 
-          a.*,
-          u.name as author_name,
-          c.name as category_name,
-          c.slug as category_slug
-        FROM articles a
-        LEFT JOIN users u ON a.author_id = u.id
-        LEFT JOIN categories c ON a.category_id = c.id
-        WHERE a.status = $1
-      `;
-      
-      const params = [status];
-      let paramCount = 1;
-
+      // Filter by category
       if (category) {
-        paramCount++;
-        query += ` AND c.slug = $${paramCount}`;
-        params.push(category);
+        whereClause.categoryId = category;
       }
 
-      if (search) {
-        paramCount++;
-        query += ` AND (
-          a.title ILIKE $${paramCount} OR 
-          a.excerpt ILIKE $${paramCount} OR
-          to_tsvector('english', a.content) @@ plainto_tsquery('english', $${paramCount})
-        )`;
-        params.push(`%${search}%`);
-      }
-
+      // Filter by featured
       if (featured !== undefined) {
-        paramCount++;
-        query += ` AND a.is_featured = $${paramCount}`;
-        params.push(featured === 'true');
+        whereClause.is_featured = featured === 'true';
       }
 
-      // Add sorting
-      const allowedSorts = ['published_at', 'view_count', 'title', 'created_at'];
-      const sortField = allowedSorts.includes(sort) ? sort : 'published_at';
-      query += ` ORDER BY a.${sortField} DESC`;
-
-      // Add pagination
-      paramCount++;
-      query += ` LIMIT $${paramCount}`;
-      params.push(limit);
-
-      paramCount++;
-      query += ` OFFSET $${paramCount}`;
-      params.push(offset);
-
-      const result = await pool.query(query, params);
-
-      // Get total count
-      let countQuery = `
-        SELECT COUNT(*) as total
-        FROM articles a
-        LEFT JOIN categories c ON a.category_id = c.id
-        WHERE a.status = $1
-      `;
-      const countParams = [status];
-      let countParamCount = 1;
-
-      if (category) {
-        countParamCount++;
-        countQuery += ` AND c.slug = $${countParamCount}`;
-        countParams.push(category);
-      }
-
+      // Search functionality
       if (search) {
-        countParamCount++;
-        countQuery += ` AND (
-          a.title ILIKE $${countParamCount} OR 
-          a.excerpt ILIKE $${countParamCount} OR
-          to_tsvector('english', a.content) @@ plainto_tsquery('english', $${countParamCount})
-        )`;
-        countParams.push(`%${search}%`);
+        whereClause[Op.or] = [
+          { title: { [Op.iLike]: `%${search}%` } },
+          { excerpt: { [Op.iLike]: `%${search}%` } },
+          { content: { [Op.iLike]: `%${search}%` } }
+        ];
       }
 
-      if (featured !== undefined) {
-        countParamCount++;
-        countQuery += ` AND a.is_featured = $${countParamCount}`;
-        countParams.push(featured === 'true');
-      }
+      const articles = await Article.findAndCountAll({
+        where: whereClause,
+        include: [
+          {
+            model: User,
+            as: 'author',
+            attributes: ['id', 'name', 'email', 'avatar']
+          },
+          {
+            model: Category,
+            as: 'category',
+            attributes: ['id', 'name', 'slug']
+          }
+        ],
+        limit: parseInt(limit),
+        offset: offset,
+        order: [[sortBy, sortOrder]],
+        distinct: true
+      });
 
-      const countResult = await pool.query(countQuery, countParams);
-      const total = parseInt(countResult.rows[0].total);
-
-      const response = {
-        success: true,
-        data: result.rows,
-        pagination: {
-          page: parseInt(page),
-          limit: parseInt(limit),
-          total,
-          pages: Math.ceil(total / limit)
-        }
+      // Generate SEO meta for listing page
+      const seoMeta = {
+        title: search ? `Search Results for "${search}"` : 'Latest Articles',
+        description: 'Browse our latest medical articles and health information',
+        canonical: `${req.protocol}://${req.get('host')}${req.originalUrl}`
       };
 
-      // Cache for 5 minutes
-      await redis.setex(cacheKey, 300, JSON.stringify(response));
-
-      res.json(response);
+      res.json({
+        success: true,
+        data: {
+          articles: articles.rows,
+          pagination: {
+            currentPage: parseInt(page),
+            totalPages: Math.ceil(articles.count / limit),
+            totalItems: articles.count,
+            hasNext: page < Math.ceil(articles.count / limit),
+            hasPrev: page > 1
+          },
+          seo: seoMeta
+        }
+      });
     } catch (error) {
-      logger.error('Error getting articles:', error);
+      logger.error('Error fetching articles:', error);
       res.status(500).json({
         success: false,
-        message: 'Internal server error'
+        message: 'Error fetching articles',
+        error: error.message
       });
     }
   }
 
-  // Get single article by slug
-  async getArticle(req, res) {
+  // Get single article by slug with SEO
+  async getBySlug(req, res) {
     try {
       const { slug } = req.params;
-      const cacheKey = `article:${slug}`;
 
-      // Try cache first
-      const cached = await redis.get(cacheKey);
-      if (cached) {
-        // Increment view count asynchronously
-        this.incrementViewCount(slug);
-        return res.json(JSON.parse(cached));
-      }
+      const article = await Article.findOne({
+        where: { slug, status: 'published' },
+        include: [
+          {
+            model: User,
+            as: 'author',
+            attributes: ['id', 'name', 'email', 'avatar']
+          },
+          {
+            model: Category,
+            as: 'category',
+            attributes: ['id', 'name', 'slug', 'description']
+          }
+        ]
+      });
 
-      const query = `
-        SELECT 
-          a.*,
-          u.name as author_name,
-          u.avatar as author_avatar,
-          c.name as category_name,
-          c.slug as category_slug
-        FROM articles a
-        LEFT JOIN users u ON a.author_id = u.id
-        LEFT JOIN categories c ON a.category_id = c.id
-        WHERE a.slug = $1 AND a.status = 'published'
-      `;
-
-      const result = await pool.query(query, [slug]);
-
-      if (result.rows.length === 0) {
+      if (!article) {
         return res.status(404).json({
           success: false,
           message: 'Article not found'
         });
       }
 
-      const article = result.rows[0];
+      // Increment view count
+      await article.increment('view_count');
 
-      // Get related articles
-      const relatedQuery = `
-        SELECT id, title, slug, excerpt, featured_image, published_at
-        FROM articles
-        WHERE category_id = $1 AND id != $2 AND status = 'published'
-        ORDER BY published_at DESC
-        LIMIT 3
-      `;
-      const relatedResult = await pool.query(relatedQuery, [article.category_id, article.id]);
+      // Generate structured data for SEO
+      const structuredData = seoService.generateArticleStructuredData(article);
 
-      const response = {
-        success: true,
-        data: {
-          ...article,
-          related_articles: relatedResult.rows
+      // Generate SEO meta tags
+      const seoMeta = {
+        title: article.seo_title || article.title,
+        description: article.seo_description || article.excerpt,
+        keywords: article.seo_keywords,
+        canonical: article.canonical_url || `${req.protocol}://${req.get('host')}/articles/${slug}`,
+        robots: article.meta_robots || 'index,follow',
+        structuredData,
+        openGraph: {
+          title: article.title,
+          description: article.excerpt,
+          image: article.featured_image,
+          url: `${req.protocol}://${req.get('host')}/articles/${slug}`,
+          type: 'article',
+          publishedTime: article.published_at,
+          modifiedTime: article.updated_at,
+          author: article.author?.name,
+          section: article.category?.name
         }
       };
 
-      // Cache for 1 hour
-      await redis.setex(cacheKey, 3600, JSON.stringify(response));
-
-      // Increment view count
-      this.incrementViewCount(slug);
-
-      res.json(response);
+      res.json({
+        success: true,
+        data: {
+          article,
+          seo: seoMeta
+        }
+      });
     } catch (error) {
-      logger.error('Error getting article:', error);
+      logger.error('Error fetching article:', error);
       res.status(500).json({
         success: false,
-        message: 'Internal server error'
+        message: 'Error fetching article',
+        error: error.message
       });
     }
   }
 
   // Create new article
-  async createArticle(req, res) {
-    const client = await pool.connect();
-    
+  async create(req, res) {
     try {
-      await client.query('BEGIN');
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({
+          success: false,
+          message: 'Validation errors',
+          errors: errors.array()
+        });
+      }
 
       const {
         title,
         content,
         excerpt,
-        category_id,
+        categoryId,
         status = 'draft',
         is_featured = false,
+        featured_image,
         seo_title,
         seo_description,
         seo_keywords,
-        featured_image
+        canonical_url,
+        meta_robots = 'index,follow'
       } = req.body;
 
-      const slug = generateSlug(title);
+      // Generate slug
+      const slug = await generateSlug(title, Article);
+
+      // Calculate reading time
       const reading_time = calculateReadingTime(content);
 
-      const query = `
-        INSERT INTO articles (
-          title, slug, content, excerpt, category_id, author_id, status,
-          is_featured, reading_time, seo_title, seo_description, seo_keywords,
-          featured_image, published_at
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
-        RETURNING *
-      `;
+      // Auto-generate SEO fields if not provided
+      const finalSeoTitle = seo_title || title;
+      const finalSeoDescription = seo_description || excerpt || content.substring(0, 160);
 
-      const published_at = status === 'published' ? new Date() : null;
+      const article = await Article.create({
+        title,
+        slug,
+        content,
+        excerpt,
+        categoryId,
+        authorId: req.user.id,
+        status,
+        is_featured,
+        featured_image,
+        reading_time,
+        published_at: status === 'published' ? new Date() : null,
+        seo_title: finalSeoTitle,
+        seo_description: finalSeoDescription,
+        seo_keywords,
+        canonical_url,
+        meta_robots,
+        schema_markup: seoService.generateArticleStructuredData({
+          title,
+          excerpt,
+          content,
+          published_at: status === 'published' ? new Date() : null
+        })
+      });
 
-      const result = await client.query(query, [
-        title, slug, content, excerpt, category_id, req.user.id, status,
-        is_featured, reading_time, seo_title, seo_description, seo_keywords,
-        featured_image, published_at
-      ]);
+      // Load full article with associations
+      const fullArticle = await Article.findByPk(article.id, {
+        include: [
+          {
+            model: User,
+            as: 'author',
+            attributes: ['id', 'name', 'email']
+          },
+          {
+            model: Category,
+            as: 'category',
+            attributes: ['id', 'name', 'slug']
+          }
+        ]
+      });
 
-      await client.query('COMMIT');
-
-      // Clear cache
-      await this.clearArticleCache();
+      logger.info(`Article created: ${article.id} by user ${req.user.id}`);
 
       res.status(201).json({
         success: true,
-        data: result.rows[0],
-        message: 'Article created successfully'
+        message: 'Article created successfully',
+        data: fullArticle
       });
     } catch (error) {
-      await client.query('ROLLBACK');
       logger.error('Error creating article:', error);
-      
-      if (error.code === '23505') {
-        return res.status(400).json({
-          success: false,
-          message: 'Article with this title already exists'
-        });
-      }
-      
       res.status(500).json({
         success: false,
-        message: 'Internal server error'
+        message: 'Error creating article',
+        error: error.message
       });
-    } finally {
-      client.release();
     }
   }
 
   // Update article
-  async updateArticle(req, res) {
-    const client = await pool.connect();
-    
+  async update(req, res) {
     try {
-      await client.query('BEGIN');
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({
+          success: false,
+          message: 'Validation errors',
+          errors: errors.array()
+        });
+      }
 
       const { id } = req.params;
-      const updateFields = { ...req.body };
-      updateFields.updated_at = new Date();
+      const article = await Article.findByPk(id);
 
-      if (updateFields.title) {
-        updateFields.slug = generateSlug(updateFields.title);
-      }
-
-      if (updateFields.content) {
-        updateFields.reading_time = calculateReadingTime(updateFields.content);
-      }
-
-      if (updateFields.status === 'published') {
-        updateFields.published_at = new Date();
-      }
-
-      const setClause = Object.keys(updateFields)
-        .map((key, index) => `${key} = $${index + 2}`)
-        .join(', ');
-
-      const query = `
-        UPDATE articles 
-        SET ${setClause}
-        WHERE id = $1
-        RETURNING *
-      `;
-
-      const values = [id, ...Object.values(updateFields)];
-      const result = await client.query(query, values);
-
-      if (result.rows.length === 0) {
+      if (!article) {
         return res.status(404).json({
           success: false,
           message: 'Article not found'
         });
       }
 
-      await client.query('COMMIT');
+      // Check authorization
+      if (req.user.role !== 'admin' && article.authorId !== req.user.id) {
+        return res.status(403).json({
+          success: false,
+          message: 'Not authorized to update this article'
+        });
+      }
 
-      // Clear cache
-      await this.clearArticleCache();
+      const {
+        title,
+        content,
+        excerpt,
+        categoryId,
+        status,
+        is_featured,
+        featured_image,
+        seo_title,
+        seo_description,
+        seo_keywords,
+        canonical_url,
+        meta_robots
+      } = req.body;
+
+      const updateData = {};
+
+      // Only update provided fields
+      if (title !== undefined) {
+        updateData.title = title;
+        if (title !== article.title) {
+          updateData.slug = await generateSlug(title, Article, id);
+        }
+      }
+
+      if (content !== undefined) {
+        updateData.content = content;
+        updateData.reading_time = calculateReadingTime(content);
+      }
+
+      if (excerpt !== undefined) updateData.excerpt = excerpt;
+      if (categoryId !== undefined) updateData.categoryId = categoryId;
+      if (featured_image !== undefined) updateData.featured_image = featured_image;
+      if (is_featured !== undefined) updateData.is_featured = is_featured;
+      if (seo_title !== undefined) updateData.seo_title = seo_title;
+      if (seo_description !== undefined) updateData.seo_description = seo_description;
+      if (seo_keywords !== undefined) updateData.seo_keywords = seo_keywords;
+      if (canonical_url !== undefined) updateData.canonical_url = canonical_url;
+      if (meta_robots !== undefined) updateData.meta_robots = meta_robots;
+
+      // Handle status change
+      if (status !== undefined && status !== article.status) {
+        updateData.status = status;
+        if (status === 'published' && !article.published_at) {
+          updateData.published_at = new Date();
+        }
+      }
+
+      // Update structured data
+      updateData.schema_markup = seoService.generateArticleStructuredData({
+        ...article.toJSON(),
+        ...updateData
+      });
+
+      updateData.updated_at = new Date();
+
+      await article.update(updateData);
+
+      // Load updated article with associations
+      const updatedArticle = await Article.findByPk(id, {
+        include: [
+          {
+            model: User,
+            as: 'author',
+            attributes: ['id', 'name', 'email']
+          },
+          {
+            model: Category,
+            as: 'category',
+            attributes: ['id', 'name', 'slug']
+          }
+        ]
+      });
+
+      logger.info(`Article updated: ${id} by user ${req.user.id}`);
 
       res.json({
         success: true,
-        data: result.rows[0],
-        message: 'Article updated successfully'
+        message: 'Article updated successfully',
+        data: updatedArticle
       });
     } catch (error) {
-      await client.query('ROLLBACK');
       logger.error('Error updating article:', error);
       res.status(500).json({
         success: false,
-        message: 'Internal server error'
+        message: 'Error updating article',
+        error: error.message
       });
-    } finally {
-      client.release();
     }
   }
 
   // Delete article
-  async deleteArticle(req, res) {
+  async delete(req, res) {
     try {
       const { id } = req.params;
+      const article = await Article.findByPk(id);
 
-      const result = await pool.query(
-        'DELETE FROM articles WHERE id = $1 RETURNING *',
-        [id]
-      );
-
-      if (result.rows.length === 0) {
+      if (!article) {
         return res.status(404).json({
           success: false,
           message: 'Article not found'
         });
       }
 
-      // Clear cache
-      await this.clearArticleCache();
+      // Check authorization
+      if (req.user.role !== 'admin' && article.authorId !== req.user.id) {
+        return res.status(403).json({
+          success: false,
+          message: 'Not authorized to delete this article'
+        });
+      }
+
+      await article.destroy();
+
+      logger.info(`Article deleted: ${id} by user ${req.user.id}`);
 
       res.json({
         success: true,
@@ -374,31 +419,152 @@ class ArticleController {
       logger.error('Error deleting article:', error);
       res.status(500).json({
         success: false,
-        message: 'Internal server error'
+        message: 'Error deleting article',
+        error: error.message
       });
     }
   }
 
-  // Helper methods
-  async incrementViewCount(slug) {
+  // Get related articles
+  async getRelated(req, res) {
     try {
-      await pool.query(
-        'UPDATE articles SET view_count = view_count + 1 WHERE slug = $1',
-        [slug]
-      );
+      const { slug } = req.params;
+      const { limit = 5 } = req.query;
+
+      const currentArticle = await Article.findOne({
+        where: { slug, status: 'published' }
+      });
+
+      if (!currentArticle) {
+        return res.status(404).json({
+          success: false,
+          message: 'Article not found'
+        });
+      }
+
+      const relatedArticles = await Article.findAll({
+        where: {
+          id: { [Op.ne]: currentArticle.id },
+          status: 'published',
+          categoryId: currentArticle.categoryId
+        },
+        include: [
+          {
+            model: User,
+            as: 'author',
+            attributes: ['id', 'name', 'avatar']
+          },
+          {
+            model: Category,
+            as: 'category',
+            attributes: ['id', 'name', 'slug']
+          }
+        ],
+        limit: parseInt(limit),
+        order: [['created_at', 'DESC']]
+      });
+
+      res.json({
+        success: true,
+        data: relatedArticles
+      });
     } catch (error) {
-      logger.error('Error incrementing view count:', error);
+      logger.error('Error fetching related articles:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Error fetching related articles',
+        error: error.message
+      });
     }
   }
 
-  async clearArticleCache() {
+  // Get popular articles
+  async getPopular(req, res) {
     try {
-      const keys = await redis.keys('article*');
-      if (keys.length > 0) {
-        await redis.del(keys);
-      }
+      const { limit = 10, days = 30 } = req.query;
+      const dateFrom = new Date();
+      dateFrom.setDate(dateFrom.getDate() - days);
+
+      const popularArticles = await Article.findAll({
+        where: {
+          status: 'published',
+          published_at: { [Op.gte]: dateFrom }
+        },
+        include: [
+          {
+            model: User,
+            as: 'author',
+            attributes: ['id', 'name', 'avatar']
+          },
+          {
+            model: Category,
+            as: 'category',
+            attributes: ['id', 'name', 'slug']
+          }
+        ],
+        limit: parseInt(limit),
+        order: [['view_count', 'DESC'], ['created_at', 'DESC']]
+      });
+
+      res.json({
+        success: true,
+        data: popularArticles
+      });
     } catch (error) {
-      logger.error('Error clearing cache:', error);
+      logger.error('Error fetching popular articles:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Error fetching popular articles',
+        error: error.message
+      });
+    }
+  }
+
+  // Bulk update status
+  async bulkUpdateStatus(req, res) {
+    try {
+      const { ids, status } = req.body;
+
+      if (!ids || !Array.isArray(ids) || ids.length === 0) {
+        return res.status(400).json({
+          success: false,
+          message: 'IDs array is required'
+        });
+      }
+
+      if (!['draft', 'published', 'archived'].includes(status)) {
+        return res.status(400).json({
+          success: false,
+          message: 'Invalid status'
+        });
+      }
+
+      const updateData = { status, updated_at: new Date() };
+      if (status === 'published') {
+        updateData.published_at = new Date();
+      }
+
+      const [updatedCount] = await Article.update(updateData, {
+        where: {
+          id: { [Op.in]: ids },
+          authorId: req.user.role === 'admin' ? undefined : req.user.id
+        }
+      });
+
+      logger.info(`Bulk status update: ${updatedCount} articles updated to ${status} by user ${req.user.id}`);
+
+      res.json({
+        success: true,
+        message: `${updatedCount} articles updated successfully`,
+        data: { updatedCount, status }
+      });
+    } catch (error) {
+      logger.error('Error bulk updating articles:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Error bulk updating articles',
+        error: error.message
+      });
     }
   }
 }
