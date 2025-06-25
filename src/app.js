@@ -59,8 +59,10 @@ const speedLimiter = slowDown({
   delayMs: () => 500,
 });
 
-app.use("/api/", limiter);
-app.use("/api/", speedLimiter);
+if (process.env.NODE_ENV === "production") {
+  app.use("/api/", limiter);
+  app.use("/api/", speedLimiter);
+}
 
 // Body parsing
 app.use(express.json({ limit: "10mb" }));

@@ -35,4 +35,8 @@ DoctorModel.associate?.(db);
 PageModel.associate?.(db);
 SeoMetaModel.associate?.(db);
 
-module.exports = db;
+module.exports = {
+  models: db,
+  sequelize,
+};
+

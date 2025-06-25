@@ -1,0 +1,100 @@
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 11:44:43:4443"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 11:44:43:4443"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 11:44:43:4443"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 11:53:13:5313"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 11:53:13:5313"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 11:53:13:5313"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 11:54:06:546"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 11:54:06:546"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 11:54:06:546"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:05:04:33 +0000] \"POST /api/auth/register HTTP/1.1\" 400 83 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 12:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:05:04:50 +0000] \"POST /api/auth/register HTTP/1.1\" 201 946 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 12:04:50:450"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:05:05:10 +0000] \"POST /api/auth/register HTTP/1.1\" 201 962 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 12:05:10:510"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:05:09:43 +0000] \"POST /api/auth/login HTTP/1.1\" 200 957 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 12:09:43:943"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:05:10:30 +0000] \"POST /api/auth/login HTTP/1.1\" 200 941 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 12:10:30:1030"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:05:11:07 +0000] \"POST /api/auth/login HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 12:11:07:117"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:05:11:19 +0000] \"POST /api/auth/login HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 12:11:19:1119"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:05:11:20 +0000] \"POST /api/auth/login HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 12:11:20:1120"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:05:11:21 +0000] \"POST /api/auth/login HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 12:11:21:1121"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:05:12:51 +0000] \"POST /api/auth/login HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 12:12:51:1251"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 13:41:10:4110"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 13:41:10:4110"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 13:41:10:4110"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:06:41:19 +0000] \"POST /api/auth/login HTTP/1.1\" 401 88 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 13:41:19:4119"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:06:41:39 +0000] \"POST /api/auth/login HTTP/1.1\" 200 936 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 13:41:39:4139"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:06:47:10 +0000] \"POST /api/categories HTTP/1.1\" 401 60 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 13:47:10:4710"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:06:47:52 +0000] \"POST /api/categories HTTP/1.1\" 401 60 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 13:47:52:4752"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:06:49:09 +0000] \"POST /api/auth/login HTTP/1.1\" 200 941 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 13:49:09:499"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:06:49:59 +0000] \"POST /api/categories HTTP/1.1\" 401 60 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 13:49:59:4959"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 14:17:08:178"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 14:17:08:178"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 14:17:08:178"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 14:18:18:1818"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 14:18:18:1818"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 14:18:18:1818"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:07:18:47 +0000] \"POST /api/auth/login HTTP/1.1\" 200 936 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 14:18:47:1847"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:07:19:37 +0000] \"POST /api/auth/login HTTP/1.1\" 200 936 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 14:19:37:1937"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 14:20:31:2031"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 14:20:31:2031"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 14:20:31:2031"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 14:21:02:212"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 14:21:02:212"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 14:21:02:212"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 14:35:52:3552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 14:35:52:3552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 14:35:52:3552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 14:36:11:3611"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 14:36:11:3611"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 14:36:11:3611"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mReceived SIGINT. Shutting down gracefully...\u001b[39m","timestamp":"2025-06-24 14:36:18:3618"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHTTP server closed\u001b[39m","timestamp":"2025-06-24 14:36:18:3618"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mSequelize connection closed\u001b[39m","timestamp":"2025-06-24 14:36:18:3618"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRedis connection closed\u001b[39m","timestamp":"2025-06-24 14:36:18:3618"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 14:36:21:3621"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 14:36:21:3621"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 14:36:21:3621"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 14:36:33:3633"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 14:36:33:3633"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 14:36:33:3633"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mReceived SIGINT. Shutting down gracefully...\u001b[39m","timestamp":"2025-06-24 14:36:36:3636"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHTTP server closed\u001b[39m","timestamp":"2025-06-24 14:36:36:3636"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mSequelize connection closed\u001b[39m","timestamp":"2025-06-24 14:36:36:3636"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mRedis connection closed\u001b[39m","timestamp":"2025-06-24 14:36:36:3636"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 14:36:40:3640"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 14:36:40:3640"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 14:36:40:3640"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 14:38:59:3859"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 14:38:59:3859"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 14:38:59:3859"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:07:43:54 +0000] \"POST /api/categories HTTP/1.1\" 401 60 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 14:43:54:4354"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 16:16:48:1648"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 16:16:48:1648"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 16:16:48:1648"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:16:56 +0000] \"POST /api/categories HTTP/1.1\" 401 60 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:16:56:1656"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 16:21:27:2127"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 16:21:27:2127"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 16:21:27:2127"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:21:34 +0000] \"POST /api/categories HTTP/1.1\" 401 60 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:21:34:2134"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 16:22:36:2236"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 16:22:36:2236"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 16:22:36:2236"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:22:41 +0000] \"POST /api/categories HTTP/1.1\" 403 51 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:22:41:2241"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:28:07 +0000] \"POST /api/auth/registrasi HTTP/1.1\" 404 97 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:28:07:287"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:28:32 +0000] \"POST /api/auth/register HTTP/1.1\" 400 96 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:28:32:2832"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:29:02 +0000] \"POST /api/auth/register HTTP/1.1\" 201 988 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:29:02:292"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:31:56 +0000] \"POST /api/auth/login HTTP/1.1\" 200 983 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:31:56:3156"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:32:30 +0000] \"POST /api/categories HTTP/1.1\" 403 51 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:32:30:3230"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Sequelize connected and models synchronized\u001b[39m","timestamp":"2025-06-24 16:48:17:4817"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Redis connected successfully\u001b[39m","timestamp":"2025-06-24 16:48:17:4817"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server running on port 8000 in development mode\u001b[39m","timestamp":"2025-06-24 16:48:17:4817"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:48:44 +0000] \"POST /api/auth/login HTTP/1.1\" 401 88 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:48:44:4844"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:48:55 +0000] \"POST /api/auth/register HTTP/1.1\" 201 979 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:48:55:4855"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mCategory created: 623426f7-7904-4482-ac06-578a05bffad2 by user 512f46fa-1bb8-447c-ba76-d4c9e8942645\u001b[39m","timestamp":"2025-06-24 16:49:16:4916"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [24/Jun/2025:09:49:16 +0000] \"POST /api/categories HTTP/1.1\" 201 569 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-24 16:49:16:4916"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mError creating article: Cannot read properties of undefined (reading 'findOne')\u001b[39m","stack":"TypeError: Cannot read properties of undefined (reading 'findOne')\n    at generateSlug (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/utils/helpers.js:39:34)\n    at create (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/controllers/articleController.js:201:26)\n    at Layer.handle [as handle_request] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/route.js:149:13)\n    at middleware (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express-validator/lib/middlewares/check.js:16:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-06-25 08:10:54:1054"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [25/Jun/2025:01:10:54 +0000] \"POST /api/articles HTTP/1.1\" 500 118 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-25 08:10:54:1054"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mError creating article: Cannot read properties of undefined (reading 'findOne')\u001b[39m","stack":"TypeError: Cannot read properties of undefined (reading 'findOne')\n    at generateSlug (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/utils/helpers.js:39:34)\n    at create (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/controllers/articleController.js:201:26)\n    at Layer.handle [as handle_request] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/route.js:149:13)\n    at middleware (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express-validator/lib/middlewares/check.js:16:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-06-25 08:12:09:129"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m::1 - - [25/Jun/2025:01:12:09 +0000] \"POST /api/articles HTTP/1.1\" 500 118 \"-\" \"PostmanRuntime/7.44.0\"\u001b[39m","timestamp":"2025-06-25 08:12:09:129"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mReceived SIGINT. Shutting down gracefully...\u001b[39m","timestamp":"2025-06-25 14:43:32:4332"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHTTP server closed\u001b[39m","timestamp":"2025-06-25 14:43:32:4332"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mSequelize connection closed\u001b[39m","timestamp":"2025-06-25 14:43:32:4332"}

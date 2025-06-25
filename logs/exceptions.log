@@ -1,0 +1,36 @@
+2025-06-24 11:42:45:4245 [31merror[39m: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/index.js:521:19)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/categories.js:15:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+2025-06-24 11:43:20:4320 [31merror[39m: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/index.js:521:19)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/categories.js:15:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+2025-06-24 11:43:26:4326 [31merror[39m: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/index.js:521:19)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/categories.js:15:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m

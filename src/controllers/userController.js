@@ -6,14 +6,30 @@ class UserController {
     this.User = models.User;
   }
 
-  // CREATE - Membuat user baru
+  // CREATE - Membuat user baru dengan debugging
   async createUser(userData) {
     try {
+      // Debug: Log data yang diterima
+      console.log('Received userData:', userData);
+      console.log('User model attributes:', Object.keys(this.User.rawAttributes));
+      
+      // Validasi manual data yang diperlukan
+      if (!userData.email || !userData.password || !userData.name) {
+        return {
+          success: false,
+          error: 'Email, password, dan name harus diisi',
+          message: 'Data tidak lengkap'
+        };
+      }
+
       // Hash password sebelum menyimpan
       if (userData.password) {
         const saltRounds = 10;
         userData.password = await bcrypt.hash(userData.password, saltRounds);
       }
+
+      // Debug: Log data sebelum create
+      console.log('Data before create:', userData);
 
       const user = await this.User.create(userData);
       
@@ -27,6 +43,7 @@ class UserController {
         message: 'User berhasil dibuat'
       };
     } catch (error) {
+      console.error('Error creating user:', error);
       return {
         success: false,
         error: error.message,
@@ -77,7 +94,8 @@ class UserController {
         include: [
           {
             association: 'articles',
-            attributes: ['id', 'title', 'created_at']
+            attributes: ['id', 'title', 'created_at'],
+            required: false // Make it LEFT JOIN instead of INNER JOIN
           }
         ]
       });
@@ -96,6 +114,7 @@ class UserController {
         message: 'Data user berhasil diambil'
       };
     } catch (error) {
+      console.error('Error getting all users:', error);
       return {
         success: false,
         error: error.message,
@@ -112,7 +131,8 @@ class UserController {
         include: [
           {
             association: 'articles',
-            attributes: ['id', 'title', 'created_at']
+            attributes: ['id', 'title', 'created_at'],
+            required: false
           }
         ]
       });
@@ -130,6 +150,7 @@ class UserController {
         message: 'Data user berhasil diambil'
       };
     } catch (error) {
+      console.error('Error getting user by id:', error);
       return {
         success: false,
         error: error.message,
@@ -159,6 +180,7 @@ class UserController {
         message: 'Data user berhasil diambil'
       };
     } catch (error) {
+      console.error('Error getting user by email:', error);
       return {
         success: false,
         error: error.message,
@@ -185,9 +207,6 @@ class UserController {
         updateData.password = await bcrypt.hash(updateData.password, saltRounds);
       }
 
-      // Update timestamp
-      updateData.updated_at = new Date();
-
       await user.update(updateData);
       
       // Ambil data user yang sudah diupdate tanpa password
@@ -201,6 +220,7 @@ class UserController {
         message: 'User berhasil diperbarui'
       };
     } catch (error) {
+      console.error('Error updating user:', error);
       return {
         success: false,
         error: error.message,
@@ -238,7 +258,6 @@ class UserController {
         };
       }
 
-      filteredData.updated_at = new Date();
       await user.update(filteredData);
       
       const updatedUser = await this.User.findByPk(id, {
@@ -251,6 +270,7 @@ class UserController {
         message: 'User berhasil diperbarui'
       };
     } catch (error) {
+      console.error('Error patching user:', error);
       return {
         success: false,
         error: error.message,
@@ -272,8 +292,7 @@ class UserController {
       }
 
       await user.update({ 
-        is_active: false,
-        updated_at: new Date()
+        is_active: false
       });
 
       return {
@@ -281,6 +300,7 @@ class UserController {
         message: 'User berhasil dinonaktifkan'
       };
     } catch (error) {
+      console.error('Error deactivating user:', error);
       return {
         success: false,
         error: error.message,
@@ -308,6 +328,7 @@ class UserController {
         message: 'User berhasil dihapus permanent'
       };
     } catch (error) {
+      console.error('Error deleting user:', error);
       return {
         success: false,
         error: error.message,
@@ -333,6 +354,7 @@ class UserController {
         message: `${deletedCount} user berhasil dihapus`
       };
     } catch (error) {
+      console.error('Error deleting multiple users:', error);
       return {
         success: false,
         error: error.message,
@@ -377,6 +399,7 @@ class UserController {
         message: 'Login berhasil'
       };
     } catch (error) {
+      console.error('Error verifying password:', error);
       return {
         success: false,
         error: error.message,
@@ -412,8 +435,7 @@ class UserController {
       const hashedNewPassword = await bcrypt.hash(newPassword, saltRounds);
 
       await user.update({ 
-        password: hashedNewPassword,
-        updated_at: new Date()
+        password: hashedNewPassword
       });
 
       return {
@@ -421,6 +443,7 @@ class UserController {
         message: 'Password berhasil diperbarui'
       };
     } catch (error) {
+      console.error('Error updating password:', error);
       return {
         success: false,
         error: error.message,
@@ -460,6 +483,7 @@ class UserController {
         message: 'Statistik user berhasil diambil'
       };
     } catch (error) {
+      console.error('Error getting user stats:', error);
       return {
         success: false,
         error: error.message,

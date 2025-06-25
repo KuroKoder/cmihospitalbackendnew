@@ -52,7 +52,9 @@ class User {
       {
         tableName: "users",
         underscored: true,
-        timestamps: false,
+        timestamps: true, // Changed to true
+        createdAt: 'created_at', // Explicitly map timestamp fields
+        updatedAt: 'updated_at'
       }
     );
   }

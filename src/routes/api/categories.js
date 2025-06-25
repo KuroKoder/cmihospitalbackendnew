@@ -1,17 +1,73 @@
 const express = require('express');
 const router = express.Router();
 const CategoryController = require('../../controllers/categoryController');
-const { validateCategory } = require('../../validators/categoryValidator'); // Pastikan Anda memiliki validator
+const { verifyToken, requireAdmin, requireEditor, optionalAuth } = require('../../middleware/authCategory');
+const {
+  validateCategoryCreate,
+  validateCategoryUpdate,
+  validateCategoryId,
+  validateCategorySlug,
+  validateCategoryQuery,
+  validateCategoryReorder
+} = require('../../validators/categoryValidator');
 
-// Routes untuk kategori
-router.get('/', CategoryController.getAll);
-router.get('/tree', CategoryController.getTree);
-router.get('/:slug', CategoryController.getBySlug);
-router.post('/', validateCategory, CategoryController.create);
-router.put('/:id', validateCategory, CategoryController.update);
-router.delete('/:id', CategoryController.delete);
-router.put('/reorder', CategoryController.reorder);
-router.get('/:id/stats', CategoryController.getStats);
+// Public routes (no authentication required)
+router.get('/', 
+  validateCategoryQuery,
+  optionalAuth, // Optional auth to get user-specific data if available
+  CategoryController.getAll
+);
 
+router.get('/tree', 
+  optionalAuth,
+  CategoryController.getTree
+);
+
+router.get('/:slug', 
+  validateCategorySlug,
+  optionalAuth,
+  CategoryController.getBySlug
+);
+
+// Protected routes (authentication required)
+// Create category - Admin only
+router.post('/', 
+  verifyToken,
+  requireAdmin,
+  validateCategoryCreate,
+  CategoryController.create
+);
+
+// Update category - Admin only
+router.put('/:id', 
+  verifyToken,
+  requireAdmin,
+  validateCategoryUpdate,
+  CategoryController.update
+);
+
+// Delete category - Admin only
+router.delete('/:id', 
+  verifyToken,
+  requireAdmin,
+  validateCategoryId,
+  CategoryController.delete
+);
+
+// Reorder categories - Admin only
+router.put('/reorder', 
+  verifyToken,
+  requireAdmin,
+  validateCategoryReorder,
+  CategoryController.reorder
+);
+
+// Get category statistics - Editor or Admin
+router.get('/:id/stats', 
+  verifyToken,
+  requireEditor,
+  validateCategoryId,
+  CategoryController.getStats
+);
 
 module.exports = router;

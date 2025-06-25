@@ -1,3 +1,4 @@
+//validator/articleValidator.js
 const { body } = require('express-validator');
 
 const validateArticle = [

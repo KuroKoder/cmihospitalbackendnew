@@ -1,8 +1,10 @@
-const { Category, Article } = require('../models');
+const { models } = require('../models');
+const { Category, Article, User } = models;
 const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 const { generateSlug } = require('../utils/helpers');
 const logger = require('../utils/logger');
+const sequelize = require('../config/sequelize');
 
 class CategoryController {
   // Get all categories with hierarchy
@@ -289,7 +291,7 @@ class CategoryController {
         seo_keywords
       });
 
-      logger.info(`Category created: ${category.id} by user ${req.user.id}`);
+      logger.info(`Category created: ${category.id} by user ${req.user?.id || 'anonymous'}`);
 
       res.status(201).json({
         success: true,
@@ -393,7 +395,7 @@ class CategoryController {
 
       await category.update(updateData);
 
-      logger.info(`Category updated: ${id} by user ${req.user.id}`);
+      logger.info(`Category updated: ${id} by user ${req.user?.id || 'anonymous'}`);
 
       res.json({
         success: true,
@@ -449,7 +451,7 @@ class CategoryController {
 
       await category.destroy();
 
-      logger.info(`Category deleted: ${id} by user ${req.user.id}`);
+      logger.info(`Category deleted: ${id} by user ${req.user?.id || 'anonymous'}`);
 
       res.json({
         success: true,
@@ -487,7 +489,7 @@ class CategoryController {
 
       await Promise.all(updatePromises);
 
-      logger.info(`Categories reordered by user ${req.user.id}`);
+      logger.info(`Categories reordered by user ${req.user?.id || 'anonymous'}`);
 
       res.json({
         success: true,
