@@ -34,3 +34,803 @@
 [31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
 [31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
 [31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+2025-06-25 15:18:02:182 [31merror[39m: [31muncaughtException: Route.post() requires a callback function but got a [object Undefined][39m
+[31mError: Route.post() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as post] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/route.js:216:15)[39m
+[31m    at proto.<computed> [as post] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/index.js:521:19)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:10:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+2025-06-25 15:18:18:1818 [31merror[39m: [31muncaughtException: Route.post() requires a callback function but got a [object Undefined][39m
+[31mError: Route.post() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as post] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/route.js:216:15)[39m
+[31m    at proto.<computed> [as post] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/index.js:521:19)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:10:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+2025-06-25 15:18:29:1829 [31merror[39m: [31muncaughtException: Cannot read properties of undefined (reading 'Zauthenticate')[39m
+[31mTypeError: Cannot read properties of undefined (reading 'Zauthenticate')[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:10:33)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js:4:23)[39m
+2025-06-25 15:18:55:1855 [31merror[39m: [31muncaughtException: Route.post() requires a callback function but got a [object Undefined][39m
+[31mError: Route.post() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as post] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/route.js:216:15)[39m
+[31m    at proto.<computed> [as post] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/index.js:521:19)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:10:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+2025-06-25 15:19:21:1921 [31merror[39m: [31muncaughtException: Route.post() requires a callback function but got a [object Undefined][39m
+[31mError: Route.post() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as post] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/route.js:216:15)[39m
+[31m    at proto.<computed> [as post] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/index.js:521:19)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:10:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+2025-06-25 15:19:30:1930 [31merror[39m: [31muncaughtException: Route.post() requires a callback function but got a [object Undefined][39m
+[31mError: Route.post() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as post] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/route.js:216:15)[39m
+[31m    at proto.<computed> [as post] (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/node_modules/express/lib/router/index.js:521:19)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:10:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+2025-06-25 15:30:38:3038 [31merror[39m: [31muncaughtException: AuthMiddleware is not a constructor[39m
+[31mTypeError: AuthMiddleware is not a constructor[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/auth.js:9:24)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js:6:20)[39m
+2025-06-25 15:31:10:3110 [31merror[39m: [31muncaughtException: AuthMiddleware is not a constructor[39m
+[31mTypeError: AuthMiddleware is not a constructor[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/auth.js:9:24)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js:6:20)[39m
+2025-06-25 15:32:07:327 [31merror[39m: [31muncaughtException: AuthMiddleware is not a constructor[39m
+[31mTypeError: AuthMiddleware is not a constructor[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/auth.js:9:24)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js:6:20)[39m
+2025-06-25 15:32:11:3211 [31merror[39m: [31muncaughtException: AuthMiddleware is not a constructor[39m
+[31mTypeError: AuthMiddleware is not a constructor[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/auth.js:9:24)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1128:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js:6:20)[39m
+2025-07-01 09:06:01:61 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 09:06:35:635 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 09:08:37:837 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:18:39:1839 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:18:49:1849 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:18:54:1854 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:19:14:1914 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:26:45:2645 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:26:49:2649 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:28:02:282 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:28:07:287 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:30:34:3034 [31merror[39m: [31muncaughtException: Cannot find module './api/upload'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module './api/upload'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js:12:22)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:30:38:3038 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:31:05:315 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:31:08:318 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:41:35:4135 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:44:50:4450 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:45:11:4511 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:47:59:4759 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-01 10:49:07:497 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:05:26:526 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:05:49:549 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:06:11:611 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:10:36:1036 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:10:57:1057 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:11:45:1145 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:12:49:1249 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:12:57:1257 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:13:00:130 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:13:07:137 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m
+2025-07-06 15:13:50:1350 [31merror[39m: [31muncaughtException: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31mError: Cannot find module '../../middleware/uploadMiddleware'[39m
+[31mRequire stack:[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/index.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/app.js[39m
+[31m- /Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/server.js[39m
+[31m    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1075:27)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:219:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1340:12)[39m
+[31m    at require (node:internal/modules/helpers:138:16)[39m
+[31m    at Object.<anonymous> (/Users/cmipromkes1/Coding/cminextjsbacend/cmihospitalbackendnew/src/routes/api/article.js:7:27)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1565:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1708:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1318:32)[39m

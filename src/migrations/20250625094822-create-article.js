@@ -1,23 +1,24 @@
--- // Migration file: YYYYMMDDHHMMSS-remove-seo-fields-from-articles.js
+'use strict';
 
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  async up (queryInterface, Sequelize) {
     const transaction = await queryInterface.sequelize.transaction();
-    
+
     try {
-      // 1. Migrate existing SEO data from articles to seo_meta table
+      // 1. Migrate SEO data to seo_meta
       await queryInterface.sequelize.query(`
         INSERT INTO seo_meta (
-          id, 
-          model_type, 
-          model_id, 
-          seo_title, 
-          seo_description, 
-          seo_keywords, 
-          canonical_url, 
-          meta_robots, 
-          schema_markup, 
-          created_at, 
+          id,
+          model_type,
+          model_id,
+          seo_title,
+          seo_description,
+          seo_keywords,
+          canonical_url,
+          meta_robots,
+          schema_markup,
+          created_at,
           updated_at
         )
         SELECT 
@@ -41,7 +42,7 @@ module.exports = {
            OR schema_markup IS NOT NULL
       `, { transaction });
 
-      // 2. Remove SEO columns from articles table
+      // 2. Remove columns from articles
       await queryInterface.removeColumn('articles', 'seo_title', { transaction });
       await queryInterface.removeColumn('articles', 'seo_description', { transaction });
       await queryInterface.removeColumn('articles', 'seo_keywords', { transaction });
@@ -56,11 +57,11 @@ module.exports = {
     }
   },
 
-  down: async (queryInterface, Sequelize) => {
+  async down (queryInterface, Sequelize) {
     const transaction = await queryInterface.sequelize.transaction();
-    
+
     try {
-      // 1. Add SEO columns back to articles table
+      // 1. Add columns back to articles
       await queryInterface.addColumn('articles', 'seo_title', {
         type: Sequelize.STRING,
         allowNull: true
@@ -91,7 +92,7 @@ module.exports = {
         allowNull: true
       }, { transaction });
 
-      // 2. Migrate data back from seo_meta to articles
+      // 2. Restore data from seo_meta
       await queryInterface.sequelize.query(`
         UPDATE articles 
         SET 
@@ -106,7 +107,7 @@ module.exports = {
           AND sm.model_id = articles.id
       `, { transaction });
 
-      // 3. Remove Article SEO data from seo_meta
+      // 3. Cleanup seo_meta
       await queryInterface.sequelize.query(`
         DELETE FROM seo_meta WHERE model_type = 'Article'
       `, { transaction });

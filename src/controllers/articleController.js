@@ -1,9 +1,12 @@
-const { Article, Category, User, SeoMeta } = require('../models');
+// src/controllers/articleController.js - Updated version with file upload support
+const { Article, Category, User, SeoMeta } = require('../models').models;
 const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 const seoService = require('../services/seoService');
 const { generateSlug, calculateReadingTime } = require('../utils/helpers');
 const logger = require('../utils/logger');
+const path = require('path');
+const fs = require('fs');
 
 class ArticleController {
   // Get all articles with SEO optimization
@@ -59,6 +62,11 @@ class ArticleController {
             model: Category,
             as: 'category',
             attributes: ['id', 'name', 'slug']
+          },
+          {
+            model: SeoMeta,
+            as: 'seoMeta',
+            required: false
           }
         ],
         limit: parseInt(limit),
@@ -115,6 +123,11 @@ class ArticleController {
             model: Category,
             as: 'category',
             attributes: ['id', 'name', 'slug', 'description']
+          },
+          {
+            model: SeoMeta,
+            as: 'seoMeta',
+            required: false
           }
         ]
       });
@@ -130,21 +143,24 @@ class ArticleController {
       await article.increment('view_count');
 
       // Generate structured data for SEO
-      const structuredData = seoService.generateArticleStructuredData(article);
+      const structuredData = seoService.generateDefaultStructuredData(article);
 
+      // Get SEO meta from separate table or use article defaults
+      const seoMeta = article.seoMeta || {};
+      
       // Generate SEO meta tags
-      const seoMeta = {
-        title: article.seo_title || article.title,
-        description: article.seo_description || article.excerpt,
-        keywords: article.seo_keywords,
-        canonical: article.canonical_url || `${req.protocol}://${req.get('host')}/articles/${slug}`,
-        robots: article.meta_robots || 'index,follow',
-        structuredData,
+      const seoMetaTags = {
+        title: seoMeta.seo_title || article.title,
+        description: seoMeta.seo_description || article.excerpt,
+        keywords: seoMeta.seo_keywords,
+        canonical: seoMeta.canonical_url || `${req.protocol}://${req.get('host')}/articles/${slug}`,
+        robots: seoMeta.meta_robots || 'index,follow',
+        structuredData: seoMeta.schema_markup || structuredData,
         openGraph: {
-          title: article.title,
-          description: article.excerpt,
+          title: seoMeta.seo_title || article.title,
+          description: seoMeta.seo_description || article.excerpt,
           image: article.featured_image,
-          url: `${req.protocol}://${req.get('host')}/articles/${slug}`,
+          url: seoMeta.canonical_url || `${req.protocol}://${req.get('host')}/articles/${slug}`,
           type: 'article',
           publishedTime: article.published_at,
           modifiedTime: article.updated_at,
@@ -157,7 +173,7 @@ class ArticleController {
         success: true,
         data: {
           article,
-          seo: seoMeta
+          seo: seoMetaTags
         }
       });
     } catch (error) {
@@ -170,8 +186,10 @@ class ArticleController {
     }
   }
 
-  // Create new article
+  // Create new article with file upload support
   async create(req, res) {
+    const transaction = await Article.sequelize.transaction();
+    
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -189,7 +207,6 @@ class ArticleController {
         categoryId,
         status = 'draft',
         is_featured = false,
-        featured_image,
         seo_title,
         seo_description,
         seo_keywords,
@@ -197,16 +214,21 @@ class ArticleController {
         meta_robots = 'index,follow'
       } = req.body;
 
+      // Handle featured image from file upload
+      let featured_image = req.body.featured_image; // From form data
+      if (req.file && req.file.fieldname === 'featured_image') {
+        featured_image = `/uploads/${req.file.path.replace(/\\/g, '/')}`;
+      } else if (req.files && req.files.featured_image) {
+        featured_image = `/uploads/${req.files.featured_image[0].path.replace(/\\/g, '/')}`;
+      }
+
       // Generate slug
       const slug = await generateSlug(title, Article);
 
       // Calculate reading time
       const reading_time = calculateReadingTime(content);
 
-      // Auto-generate SEO fields if not provided
-      const finalSeoTitle = seo_title || title;
-      const finalSeoDescription = seo_description || excerpt || content.substring(0, 160);
-
+      // Create article first
       const article = await Article.create({
         title,
         slug,
@@ -218,19 +240,53 @@ class ArticleController {
         is_featured,
         featured_image,
         reading_time,
-        published_at: status === 'published' ? new Date() : null,
-        seo_title: finalSeoTitle,
-        seo_description: finalSeoDescription,
-        seo_keywords,
-        canonical_url,
-        meta_robots,
-        schema_markup: seoService.generateArticleStructuredData({
-          title,
-          excerpt,
-          content,
-          published_at: status === 'published' ? new Date() : null
-        })
-      });
+        published_at: status === 'published' ? new Date() : null
+      }, { transaction });
+
+      // Create SEO meta if provided
+      if (seo_title || seo_description || seo_keywords || canonical_url || meta_robots !== 'index,follow') {
+        const defaultUrl = `${req.protocol}://${req.get('host')}/articles/${slug}`;
+        
+        const structuredData = {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": title,
+          "description": excerpt || content.substring(0, 160),
+          "image": featured_image,
+          "datePublished": status === 'published' ? new Date() : null,
+          "dateModified": new Date(),
+          "author": {
+            "@type": "Person",
+            "name": req.user.name || "Anonymous"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Medical Website"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonical_url || defaultUrl
+          }
+        };
+
+        const seoMetaData = {
+          model_type: 'Article',
+          model_id: article.id,
+          seo_title: seo_title || title,
+          seo_description: seo_description || excerpt || content.substring(0, 160),
+          canonical_url: canonical_url || defaultUrl,
+          meta_robots,
+          schema_markup: structuredData
+        };
+
+        if (seo_keywords) {
+          seoMetaData.seo_keywords = seo_keywords;
+        }
+
+        await SeoMeta.create(seoMetaData, { transaction });
+      }
+
+      await transaction.commit();
 
       // Load full article with associations
       const fullArticle = await Article.findByPk(article.id, {
@@ -244,6 +300,11 @@ class ArticleController {
             model: Category,
             as: 'category',
             attributes: ['id', 'name', 'slug']
+          },
+          {
+            model: SeoMeta,
+            as: 'seoMeta',
+            required: false
           }
         ]
       });
@@ -256,6 +317,26 @@ class ArticleController {
         data: fullArticle
       });
     } catch (error) {
+      await transaction.rollback();
+      
+      // Clean up uploaded files on error
+      if (req.file) {
+        try {
+          fs.unlinkSync(req.file.path);
+        } catch (err) {
+          logger.error('Error deleting uploaded file:', err);
+        }
+      }
+      if (req.files) {
+        Object.values(req.files).flat().forEach(file => {
+          try {
+            fs.unlinkSync(file.path);
+          } catch (err) {
+            logger.error('Error deleting uploaded file:', err);
+          }
+        });
+      }
+
       logger.error('Error creating article:', error);
       res.status(500).json({
         success: false,
@@ -265,8 +346,10 @@ class ArticleController {
     }
   }
 
-  // Update article
+  // Update article with file upload support
   async update(req, res) {
+    const transaction = await Article.sequelize.transaction();
+    
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -278,7 +361,13 @@ class ArticleController {
       }
 
       const { id } = req.params;
-      const article = await Article.findByPk(id);
+      const article = await Article.findByPk(id, {
+        include: [{
+          model: SeoMeta,
+          as: 'seoMeta',
+          required: false
+        }]
+      });
 
       if (!article) {
         return res.status(404).json({
@@ -302,17 +391,17 @@ class ArticleController {
         categoryId,
         status,
         is_featured,
-        featured_image,
         seo_title,
         seo_description,
         seo_keywords,
         canonical_url,
-        meta_robots
+        meta_robots,
+        remove_featured_image
       } = req.body;
 
       const updateData = {};
 
-      // Only update provided fields
+      // Handle title update
       if (title !== undefined) {
         updateData.title = title;
         if (title !== article.title) {
@@ -320,20 +409,61 @@ class ArticleController {
         }
       }
 
+      // Handle content update
       if (content !== undefined) {
         updateData.content = content;
         updateData.reading_time = calculateReadingTime(content);
       }
 
+      // Handle other fields
       if (excerpt !== undefined) updateData.excerpt = excerpt;
       if (categoryId !== undefined) updateData.categoryId = categoryId;
-      if (featured_image !== undefined) updateData.featured_image = featured_image;
       if (is_featured !== undefined) updateData.is_featured = is_featured;
-      if (seo_title !== undefined) updateData.seo_title = seo_title;
-      if (seo_description !== undefined) updateData.seo_description = seo_description;
-      if (seo_keywords !== undefined) updateData.seo_keywords = seo_keywords;
-      if (canonical_url !== undefined) updateData.canonical_url = canonical_url;
-      if (meta_robots !== undefined) updateData.meta_robots = meta_robots;
+
+      // Handle featured image update
+      if (remove_featured_image === 'true') {
+        // Remove existing featured image
+        if (article.featured_image) {
+          const oldImagePath = path.join(process.cwd(), article.featured_image);
+          try {
+            if (fs.existsSync(oldImagePath)) {
+              fs.unlinkSync(oldImagePath);
+            }
+          } catch (err) {
+            logger.error('Error deleting old featured image:', err);
+          }
+        }
+        updateData.featured_image = null;
+      } else if (req.file && req.file.fieldname === 'featured_image') {
+        // New featured image uploaded
+        if (article.featured_image) {
+          const oldImagePath = path.join(process.cwd(), article.featured_image);
+          try {
+            if (fs.existsSync(oldImagePath)) {
+              fs.unlinkSync(oldImagePath);
+            }
+          } catch (err) {
+            logger.error('Error deleting old featured image:', err);
+          }
+        }
+        updateData.featured_image = `/uploads/${req.file.path.replace(/\\/g, '/')}`;
+      } else if (req.files && req.files.featured_image) {
+        // New featured image uploaded via multipart
+        if (article.featured_image) {
+          const oldImagePath = path.join(process.cwd(), article.featured_image);
+          try {
+            if (fs.existsSync(oldImagePath)) {
+              fs.unlinkSync(oldImagePath);
+            }
+          } catch (err) {
+            logger.error('Error deleting old featured image:', err);
+          }
+        }
+        updateData.featured_image = `/uploads/${req.files.featured_image[0].path.replace(/\\/g, '/')}`;
+      } else if (req.body.featured_image !== undefined) {
+        // Featured image URL provided in body
+        updateData.featured_image = req.body.featured_image;
+      }
 
       // Handle status change
       if (status !== undefined && status !== article.status) {
@@ -343,15 +473,49 @@ class ArticleController {
         }
       }
 
-      // Update structured data
-      updateData.schema_markup = seoService.generateArticleStructuredData({
-        ...article.toJSON(),
-        ...updateData
-      });
-
       updateData.updated_at = new Date();
 
-      await article.update(updateData);
+      // Update article
+      await article.update(updateData, { transaction });
+
+      // Handle SEO Meta
+      const hasSeoData = seo_title || seo_description || seo_keywords || canonical_url || meta_robots;
+      
+      if (hasSeoData) {
+        const structuredData = seoService.generateDefaultStructuredData({
+          ...article.toJSON(),
+          ...updateData
+        });
+
+        const seoUpdateData = {
+          seo_title,
+          seo_description,
+          seo_keywords,
+          canonical_url,
+          meta_robots,
+          schema_markup: structuredData,
+          updated_at: new Date()
+        };
+
+        // Remove undefined values
+        Object.keys(seoUpdateData).forEach(key => {
+          if (seoUpdateData[key] === undefined) {
+            delete seoUpdateData[key];
+          }
+        });
+
+        if (article.seoMeta) {
+          await article.seoMeta.update(seoUpdateData, { transaction });
+        } else {
+          await SeoMeta.create({
+            model_type: 'Article',
+            model_id: article.id,
+            ...seoUpdateData
+          }, { transaction });
+        }
+      }
+
+      await transaction.commit();
 
       // Load updated article with associations
       const updatedArticle = await Article.findByPk(id, {
@@ -365,6 +529,11 @@ class ArticleController {
             model: Category,
             as: 'category',
             attributes: ['id', 'name', 'slug']
+          },
+          {
+            model: SeoMeta,
+            as: 'seoMeta',
+            required: false
           }
         ]
       });
@@ -377,6 +546,17 @@ class ArticleController {
         data: updatedArticle
       });
     } catch (error) {
+      await transaction.rollback();
+      
+      // Clean up uploaded files on error
+      if (req.file) {
+        try {
+          fs.unlinkSync(req.file.path);
+        } catch (err) {
+          logger.error('Error deleting uploaded file:', err);
+        }
+      }
+
       logger.error('Error updating article:', error);
       res.status(500).json({
         success: false,
@@ -388,6 +568,8 @@ class ArticleController {
 
   // Delete article
   async delete(req, res) {
+    const transaction = await Article.sequelize.transaction();
+    
     try {
       const { id } = req.params;
       const article = await Article.findByPk(id);
@@ -407,7 +589,31 @@ class ArticleController {
         });
       }
 
-      await article.destroy();
+      // Delete featured image file
+      if (article.featured_image) {
+        const imagePath = path.join(process.cwd(), article.featured_image);
+        try {
+          if (fs.existsSync(imagePath)) {
+            fs.unlinkSync(imagePath);
+          }
+        } catch (err) {
+          logger.error('Error deleting featured image:', err);
+        }
+      }
+
+      // Delete related SEO meta first
+      await SeoMeta.destroy({
+        where: {
+          model_type: 'Article',
+          model_id: id
+        },
+        transaction
+      });
+
+      // Delete article
+      await article.destroy({ transaction });
+
+      await transaction.commit();
 
       logger.info(`Article deleted: ${id} by user ${req.user.id}`);
 
@@ -416,6 +622,7 @@ class ArticleController {
         message: 'Article deleted successfully'
       });
     } catch (error) {
+      await transaction.rollback();
       logger.error('Error deleting article:', error);
       res.status(500).json({
         success: false,
@@ -458,6 +665,11 @@ class ArticleController {
             model: Category,
             as: 'category',
             attributes: ['id', 'name', 'slug']
+          },
+          {
+            model: SeoMeta,
+            as: 'seoMeta',
+            required: false
           }
         ],
         limit: parseInt(limit),
@@ -500,6 +712,11 @@ class ArticleController {
             model: Category,
             as: 'category',
             attributes: ['id', 'name', 'slug']
+          },
+          {
+            model: SeoMeta,
+            as: 'seoMeta',
+            required: false
           }
         ],
         limit: parseInt(limit),

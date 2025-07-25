@@ -198,6 +198,17 @@ const formatBytes = (bytes, decimals = 2) => {
 
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 };
+/**
+ * Estimate reading time based on word count
+ * @param {string} content - Text content
+ * @param {number} wordsPerMinute - Optional WPM rate
+ * @returns {number} - Estimated reading time in minutes
+ */
+const calculateReadingTime = (content, wordsPerMinute = 200) => {
+  if (!content || typeof content !== 'string') return 0;
+  const words = content.trim().split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / wordsPerMinute));
+};
 
 /**
  * Debounce function calls
@@ -226,5 +237,6 @@ module.exports = {
   isValidUUID,
   generateRandomString,
   formatBytes,
-  debounce
+  debounce,
+  calculateReadingTime
 };

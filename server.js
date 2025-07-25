@@ -1,10 +1,25 @@
 // server.js
+console.log('✅ Mulai load server.js');
+
 require("dotenv").config();
+console.log('✅ .env loaded');
+
 const app = require("./src/app");
+console.log('✅ app.js loaded');
+
 const sequelize = require("./src/config/sequelize");
-require("./src/models"); // Ganti pool -> sequelize
+console.log('✅ Sequelize config loaded');
+
+require("./src/models");
+console.log('✅ Models loaded');
+
 const redis = require("./src/config/redis");
+console.log('✅ Redis loaded');
+
 const logger = require("./src/utils/logger");
+
+console.log('✅ Semua dependencies loaded');
+
 
 const PORT = process.env.PORT || 5000;
 

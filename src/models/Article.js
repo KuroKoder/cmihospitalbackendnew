@@ -53,15 +53,6 @@ class Article {
           defaultValue: 0,
         },
         published_at: DataTypes.DATE,
-        seo_title: DataTypes.STRING,
-        seo_description: DataTypes.TEXT,
-        seo_keywords: DataTypes.TEXT,
-        meta_robots: {
-          type: DataTypes.STRING(100),
-          defaultValue: "index,follow",
-        },
-        canonical_url: DataTypes.TEXT,
-        schema_markup: DataTypes.JSONB,
         created_at: {
           type: DataTypes.DATE,
           defaultValue: DataTypes.NOW,
@@ -80,13 +71,25 @@ class Article {
   }
 
   static associate(models) {
+    // Relasi ke User (Author)
     models.Article.belongsTo(models.User, {
       foreignKey: "authorId",
       as: "author",
     });
+    
+    // Relasi ke Category
     models.Article.belongsTo(models.Category, {
       foreignKey: "categoryId",
       as: "category",
+    });
+    
+    // Relasi polymorphic ke SeoMeta
+    models.Article.hasOne(models.SeoMeta, {
+      foreignKey: "model_id",
+      scope: {
+        model_type: "Article"
+      },
+      as: "seoMeta"
     });
   }
 }
